@@ -1,5 +1,5 @@
 //
-//  ChatVC.swift
+//  AIChatVC.swift
 //  SocketPractice
 //
 //  Created by 시모니 on 7/7/24.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
-    
+class AIChatVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomSubView: UIView!
@@ -36,7 +35,7 @@ class ChatVC: UIViewController {
     
     //MARK: - 키보드관련
     override func viewWillAppear(_ animated: Bool) {
-        print("ChatVC - viewWillApper Called")
+        print("AIChatVC - viewWillApper Called")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowNotificationHandler(notification: )) , name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideNotificationHandler(notification: )), name: UIResponder.keyboardWillHideNotification, object: self)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -44,7 +43,7 @@ class ChatVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("ChatVC - viewWillDisappear Called")
+        print("AIChatVC - viewWillDisappear Called")
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self)
     }
@@ -77,7 +76,7 @@ class ChatVC: UIViewController {
     
 }
 
-extension ChatVC: UITableViewDataSource, UITableViewDelegate {
+extension AIChatVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -95,4 +94,3 @@ extension ChatVC: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
